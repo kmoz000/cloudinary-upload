@@ -18,20 +18,20 @@ async function run() {
     const cloudName = core.getInput('cloud-name') || process.env.CLOUDINARY_CLOUD_NAME;
     const apiKey = core.getInput('api-key') || process.env.CLOUDINARY_API_KEY;
     const apiSecret = core.getInput('api-secret') || process.env.CLOUDINARY_API_SECRET;
-    const imagePath = core.getInput('image');
-    const imagesPath = core.getInput('images');
+    const filePath = core.getInput('file');
+    const filesPath = core.getInput('files');
 
     if (!cloudName || !apiKey || !apiSecret) {
       throw new Error('Cloudinary cloud name, api key and api secret are required');
     }
 
     let paths = [];
-    if (isJson(imagesPath)) {
-      paths = JSON.parse(imagesPath);
-    } else if (isGlob(imagesPath)) {
-      paths = glob.sync(imagesPath);
-    } else if (imagePath) {
-      paths = [imagePath];
+    if (isJson(filesPath)) {
+      paths = JSON.parse(filesPath);
+    } else if (isGlob(filesPath)) {
+      paths = glob.sync(filesPath);
+    } else if (filePath) {
+      paths = [filePath];
     } else {
       throw new Error('one of image or images parameter is required');
     }
