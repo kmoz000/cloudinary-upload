@@ -1,5 +1,5 @@
 name: 'Cloudinary Upload Images'
-author: 'Emmanuel Gautier'
+author: '@KMOZ000'
 description: 'Upload your medias with Cloudinary Upload Github Action to Cloudinary SaaS solution.'
 branding:
   icon: arrow-up-circle
@@ -17,12 +17,12 @@ inputs:
     description: 'Cloudinary API Secret Key'
     required: false
     default: '<api-secret>'
-  image:
+  file:
     description: 'Image path to upload'
     required: false
     default: ""
-  images:
-    description: 'Pattern or array of images path to upload'
+  file:
+    description: 'Pattern or array of file path to upload'
     required: false
     default: ""
 outputs:
